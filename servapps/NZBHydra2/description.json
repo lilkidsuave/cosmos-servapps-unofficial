@@ -1,0 +1,9 @@
+{
+  "name": "NZBHydra2",
+  "description": "NZBHydra2 - Meta Search for NZB Indexers. Aggregate and search NZB indexers effortlessly with NZBHydra2.",
+  "longDescription": "NZBHydra2 is a powerful meta search application designed to aggregate results from multiple NZB indexers. It provides a unified interface for searching and managing NZB indexers, making it easier to find the content you need. With advanced features and an intuitive user interface, NZBHydra2 is the ideal tool for managing your Usenet downloads.",
+  "tags": ["NZB", "Usenet", "Search", "Indexers", "Meta Search"],
+  "repository": "https://github.com/theotherp/nzbhydra2",
+  "image": "https://hub.docker.com/r/linuxserver/nzbhydra2",
+  "supported_architectures": ["amd64", "arm64"]
+}
