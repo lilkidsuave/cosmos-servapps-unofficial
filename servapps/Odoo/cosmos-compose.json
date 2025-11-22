@@ -7,7 +7,7 @@
       "environment": [
         "PASSWORD={Passwords.0}",
         "HOST={ServiceName}-db",
-        "USER={ServiceName}"
+        "USER=odoo"
       ]
       "volumes": [
         {
@@ -26,11 +26,10 @@
     "{ServiceName}-db": {
       "image": "postgres:15",
       "container_name": "{ServiceName}-db",
-      "hostname": "{ServiceName}-db",
       "environment": [
-        "POSTGRES_DB={ServiceName}",
+        "POSTGRES_DB=odoo",
         "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER={ServiceName}",
+        "POSTGRES_USER=odoo",
       ]
     }
   }
