@@ -35,7 +35,6 @@
     "{ServiceName}-db": {
       "image": "postgres:15",
       "container_name": "{ServiceName}-db",
-      ]
     }
   }
 }
