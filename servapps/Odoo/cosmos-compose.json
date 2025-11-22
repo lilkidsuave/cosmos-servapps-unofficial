@@ -3,6 +3,7 @@
   "services": {
     "{ServiceName}": {
       "image": "odoo:17.0",
+      "container_name": "{ServiceName}",
       "depends_on": [
         "{ServiceName}-db"
       ],
@@ -32,6 +33,7 @@
 
     "{ServiceName}-db": {
       "image": "postgres:15",
+      "container_name": "{ServiceName}-db",
       "environment": [
         "POSTGRES_DB=postgres",
         "POSTGRES_PASSWORD={Passwords.0}",
