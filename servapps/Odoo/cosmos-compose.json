@@ -8,7 +8,7 @@
         "PASSWORD={Passwords.0}",
         "HOST={ServiceName}-db",
         "USER=odoo"
-      ]
+      ],
       "volumes": [
         {
           "source": "./config",
@@ -20,7 +20,7 @@
           "target": "/mnt/extra-addons",
           "type": "bind"
         }
-      ],
+      ]
     },
 
     "{ServiceName}-db": {
@@ -29,7 +29,7 @@
       "environment": [
         "POSTGRES_DB=odoo",
         "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER=odoo",
+        "POSTGRES_USER=odoo"
       ]
     }
   }
