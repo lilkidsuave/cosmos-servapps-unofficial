@@ -1,21 +1,21 @@
 {
   "services": {
-    "web-web": {
+    "{ServiceName}": {
       "image": "odoo:17.0",
       "depends_on": {
-        "web-mydb": {}
+        "{ServiceName}-mydb": {}
       },
       "ports": [
         "8069:8069"
       ],
       "environment": [
-        "HOST=mydb",
+        "HOST={ServiceName}-mydb",
         "USER=odoo",
-        "PASSWORD=myodoo"
+        "PASSWORD={Passwords.0}"
       ],
-      "hostname": "web",
-      "container_name": "web-web",
-      "network_mode": "cosmos-web-default",
+      "hostname": "{ServiceName}",
+      "container_name": "{ServiceName}",
+      "network_mode": "cosmos-{ServiceName}",
       "labels": {
         "cosmos.stack": "web",
         "cosmos.stack.main": "true"
@@ -25,18 +25,18 @@
       "image": "postgres:15",
       "environment": [
         "POSTGRES_DB=postgres",
-        "POSTGRES_PASSWORD=myodoo",
+        "POSTGRES_PASSWORD={Passwords.0}",
         "POSTGRES_USER=odoo"
       ],
-      "hostname": "mydb",
-      "container_name": "web-mydb",
-      "network_mode": "cosmos-web-default",
+      "hostname": "{ServiceName}-mydb",
+      "container_name": "{ServiceName}-mydb",
+      "network_mode": "cosmos-{ServiceName}",
       "labels": {
-        "cosmos.stack": "web"
+        "cosmos.stack": "{ServiceName}"
       }
     }
   },
   "networks": {
-    "cosmos-web-default": {}
+    "cosmos-{ServiceName}": {}
   }
 }
