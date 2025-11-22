@@ -29,7 +29,7 @@
       "environment": [
         "PASSWORD={Passwords.0}",
         "HOST=db",
-        "USER={ServiceName}"
+        "USER=odoo"
       ]
     },
 
@@ -38,7 +38,7 @@
       "environment": [
         "POSTGRES_DB=postgres",
         "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER={ServiceName}",
+        "POSTGRES_USER=odoo",
         "PGDATA=/var/lib/postgresql/data/pgdata"
       ],
       "volumes": [
