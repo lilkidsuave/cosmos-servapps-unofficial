@@ -1,5 +1,5 @@
 {
-  "cosmos-installer": {}
+  "cosmos-installer": {},
   "minVersion": "0.9.0",
   "services": {
     "{ServiceName}": {
