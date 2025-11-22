@@ -18,11 +18,11 @@
       "container_name": "{ServiceName}",
       "network_mode": "cosmos-{ServiceName}",
       "labels": {
-        "cosmos.stack": "web",
+        "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "true"
       }
     },
-    "web-mydb": {
+    "{ServiceName}-mydb": {
       "image": "postgres:15",
       "environment": [
         "POSTGRES_DB=postgres",
