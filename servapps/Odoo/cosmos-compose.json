@@ -26,7 +26,7 @@
       "volumes": [
         {
           "source": "{ServiceName}-odoo_data",
-          "target": "/bitnami/odoo",
+          "target": "/var/lib/odoo",
           "type": "volume"
         }
     ],
