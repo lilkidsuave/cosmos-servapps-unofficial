@@ -31,6 +31,23 @@
         "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "true"
       },
+      ],
+      "routes": [
+        {
+          "name": "{ServiceName}",
+          "description": "Expose {ServiceName} to the web",
+          "useHost": true,
+          "target": "http://{ServiceName}:8069",
+          "mode": "SERVAPP",
+          "Timeout": 14400000,
+          "ThrottlePerMinute": 12000,
+          "BlockCommonBots": true,
+          "CORSOrigin": "*",
+          "SmartShield": {
+            "Enabled": true
+          }
+        }
+      ],
       {/if}
       "volumes": [
         {
