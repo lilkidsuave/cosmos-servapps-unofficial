@@ -1,36 +1,42 @@
 {
-  "cosmos-installer": {},
   "services": {
-    "{ServiceName}": {
+    "web-web": {
       "image": "odoo:17.0",
-      "container_name": "{ServiceName}",
-      "environment": [
-        "PASSWORD={Passwords.0}",
-        "HOST={ServiceName}-db",
-        "USER=odoo"
+      "depends_on": {
+        "web-mydb": {}
+      },
+      "ports": [
+        "8069:8069"
       ],
-      "volumes": [
-        {
-          "source": "./config",
-          "target": "/etc/odoo",
-          "type": "bind"
-        },
-        {
-          "source": "./addons",
-          "target": "/mnt/extra-addons",
-          "type": "bind"
-        }
-      ]
-    },
-
-    "{ServiceName}-db": {
-      "image": "postgres:15",
-      "container_name": "{ServiceName}-db",
       "environment": [
-        "POSTGRES_DB=odoo",
-        "POSTGRES_PASSWORD={Passwords.0}",
+        "HOST=mydb",
+        "USER=odoo",
+        "PASSWORD=myodoo"
+      ],
+      "hostname": "web",
+      "container_name": "web-web",
+      "network_mode": "cosmos-web-default",
+      "labels": {
+        "cosmos.stack": "web",
+        "cosmos.stack.main": "true"
+      }
+    },
+    "web-mydb": {
+      "image": "postgres:15",
+      "environment": [
+        "POSTGRES_DB=postgres",
+        "POSTGRES_PASSWORD=myodoo",
         "POSTGRES_USER=odoo"
-      ]
+      ],
+      "hostname": "mydb",
+      "container_name": "web-mydb",
+      "network_mode": "cosmos-web-default",
+      "labels": {
+        "cosmos.stack": "web"
+      }
     }
+  },
+  "networks": {
+    "cosmos-web-default": {}
   }
 }
