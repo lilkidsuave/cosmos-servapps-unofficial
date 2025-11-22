@@ -28,8 +28,8 @@
       ],
       "environment": [
         "PASSWORD={Passwords.0}",
-        "Host=db",
-        "User={ServiceName}"
+        "HOST=db",
+        "USER={ServiceName}"
       ]
     },
 
