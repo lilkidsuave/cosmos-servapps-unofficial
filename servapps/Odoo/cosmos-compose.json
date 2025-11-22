@@ -1,5 +1,20 @@
 {
-  "cosmos-installer": {},
+  "cosmos-installer": {
+    "form": [
+      {
+        "name": "configPath",
+        "label": "What is the path to your custom config? (leave empty to not mount anything)",
+        "initialValue": "/config",
+        "type": "text"
+      },
+      {
+        "name": "addonPath",
+        "label": "What is the path to your custom addons? (leave empty to not mount anything)",
+        "initialValue": "/addons",
+        "type": "text"
+      }
+    ]
+  },
   "minVersion": "0.9.0",
   "services": {
     "{ServiceName}": {
@@ -18,18 +33,48 @@
       "labels": {
         "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "true"
-      }
+      },
+      {/if}
+      "volumes": [
+        {
+          "source": "{ServiceName}-webdata",
+          "target": "/var/lib/odoo",
+          "type": "volume"
+        }
+        {if Context.configPath}
+        , {
+          "source": "{Context.configPath}",
+          "target": "/etc/odoo",
+          "type": "bind"
+        }
+        {/if}
+        {if Context.seriePath}
+        , {
+          "source": "{Context.addonPath}",
+          "target": "/mnt/extra-addons",
+          "type": "bind"
+        }
+        {/if}
+      ]
     },
     "{ServiceName}-mydb": {
       "image": "postgres:15",
       "environment": [
         "POSTGRES_DB=postgres",
         "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER=odoo"
+        "POSTGRES_USER=odoo",
+        "PGDATA=/var/lib/postgresql/data/pgdata"
+        
       ],
       "hostname": "{ServiceName}-mydb",
       "container_name": "{ServiceName}-mydb",
       "network_mode": "cosmos-{ServiceName}",
+      "volumes": [
+        {
+          "source": "{ServiceName}-db",
+          "target": "/var/lib/postgresql/data/pgdata",
+          "type": "volume"
+        }
       "labels": {
         "cosmos.stack": "{ServiceName}"
       }
