@@ -15,11 +15,6 @@
       ],
       "volumes": [
         {
-          "source": "odoo-web-data",
-          "target": "/var/lib/odoo",
-          "type": "volume"
-        },
-        {
           "source": "./config",
           "target": "/etc/odoo",
           "type": "bind"
@@ -40,12 +35,6 @@
     "{ServiceName}-db": {
       "image": "postgres:15",
       "container_name": "{ServiceName}-db",
-      "volumes": [
-        {
-          "source": "odoo-db-data",
-          "target": "/var/lib/postgresql/data/pgdata",
-          "type": "volume"
-        }
       ]
     }
   }
