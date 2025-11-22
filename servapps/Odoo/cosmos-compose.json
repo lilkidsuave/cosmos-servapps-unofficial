@@ -4,13 +4,10 @@
     "{ServiceName}": {
       "image": "odoo:17.0",
       "container_name": "{ServiceName}",
-      "depends_on": [
-        "{ServiceName}-db"
-      ],
       "environment": [
         "PASSWORD={Passwords.0}",
-        "HOST=db",
-        "USER=odoo"
+        "HOST={ServiceName}-db",
+        "USER={ServiceName}"
       ]
       "volumes": [
         {
@@ -29,11 +26,11 @@
     "{ServiceName}-db": {
       "image": "postgres:15",
       "container_name": "{ServiceName}-db",
+      "hostname": "{ServiceName}-db",
       "environment": [
-        "POSTGRES_DB=postgres",
+        "POSTGRES_DB={ServiceName}",
         "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER=odoo",
-        "PGDATA=/var/lib/postgresql/data/pgdata"
+        "POSTGRES_USER={ServiceName}",
       ]
     }
   }
