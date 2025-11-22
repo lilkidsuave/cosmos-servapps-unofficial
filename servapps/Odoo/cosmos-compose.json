@@ -19,9 +19,6 @@
   "services": {
     "{ServiceName}": {
       "image": "odoo:17.0",
-      "ports": [
-        "8069:8069"
-      ],
       "environment": [
         "HOST={ServiceName}-mydb",
         "USER=odoo",
@@ -64,7 +61,6 @@
         "POSTGRES_PASSWORD={Passwords.0}",
         "POSTGRES_USER=odoo",
         "PGDATA=/var/lib/postgresql/data/pgdata"
-        
       ],
       "hostname": "{ServiceName}-mydb",
       "container_name": "{ServiceName}-mydb",
@@ -75,6 +71,7 @@
           "target": "/var/lib/postgresql/data/pgdata",
           "type": "volume"
         }
+      ],
       "labels": {
         "cosmos.stack": "{ServiceName}"
       }
