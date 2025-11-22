@@ -8,11 +8,10 @@
         "{ServiceName}-db"
       ],
       "environment": [
-        "POSTGRES_DB=postgres",
-        "POSTGRES_PASSWORD={Passwords.0}",
-        "POSTGRES_USER=odoo",
-        "PGDATA=/var/lib/postgresql/data/pgdata"
-      ],
+        "PASSWORD={Passwords.0}",
+        "HOST=db",
+        "USER=odoo"
+      ]
       "volumes": [
         {
           "source": "./config",
@@ -25,16 +24,17 @@
           "type": "bind"
         }
       ],
-      "environment": [
-        "PASSWORD={Passwords.0}",
-        "HOST=db",
-        "USER=odoo"
-      ]
     },
 
     "{ServiceName}-db": {
       "image": "postgres:15",
       "container_name": "{ServiceName}-db",
+      "environment": [
+        "POSTGRES_DB=postgres",
+        "POSTGRES_PASSWORD={Passwords.0}",
+        "POSTGRES_USER=odoo",
+        "PGDATA=/var/lib/postgresql/data/pgdata"
+      ]
     }
   }
 }
