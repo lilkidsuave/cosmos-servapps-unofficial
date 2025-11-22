@@ -5,3 +5,4 @@ Go to your Cosmos dashboard, click on the marketplace, then sources, and add the
 ```
 https://lilkidsuave.github.io/cosmos-servapps-unofficial/index.json
 ```
+Good luck
