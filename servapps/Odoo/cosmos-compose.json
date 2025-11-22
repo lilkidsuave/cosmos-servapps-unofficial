@@ -1,29 +1,11 @@
 {
-  "cosmos-installer": {
-    "form": [
-      {
-        "name": "ODOO_EMAIL",
-        "label": "What is your Odoo email login?",
-        "initialValue": "user@Odoo.com",
-        "type": "text"
-      },
-      {
-        "name": "ODOO_PASSWORD",
-        "label": "What Odoo password does it use?",
-        "initialValue": "bitnami",
-        "type": "password"
-      }
-    ]
-  },
   "minVersion": "0.9.0",
   "services": {
     "{ServiceName}": {
-      "image": "docker.io/bitnami/odoo:latest",
+      "image": "odoo:latest",
       "container_name": "{ServiceName}",
       "restart": "unless-stopped",
       "environment": [
-        "ODOO_PASSWORD={Context.ODOO_PASSWORD}",
-        "ODOO_EMAIL={Context.ODOO_EMAIL}",
         "ODOO_DATABASE_HOST={ServiceName}-postgres",
         "ODOO_DATABASE_PORT_NUMBER=5432",
         "ODOO_DATABASE_USER=odoo",
