@@ -48,7 +48,7 @@
           "type": "bind"
         }
         {/if}
-        {if Context.seriePath}
+        {if Context.addonPath}
         , {
           "source": "{Context.addonPath}",
           "target": "/mnt/extra-addons",
