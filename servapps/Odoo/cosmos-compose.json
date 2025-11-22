@@ -30,7 +30,6 @@
       "labels": {
         "cosmos.stack": "{ServiceName}",
         "cosmos.stack.main": "true"
-      ],
       "routes": [
         {
           "name": "{ServiceName}",
