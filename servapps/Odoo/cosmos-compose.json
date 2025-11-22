@@ -1,11 +1,9 @@
 {
   "cosmos-installer": {},
+  "minVersion": "0.9.0",
   "services": {
     "{ServiceName}": {
       "image": "odoo:17.0",
-      "depends_on": {
-        "{ServiceName}-mydb": {}
-      },
       "ports": [
         "8069:8069"
       ],
